@@ -8,7 +8,8 @@ def call(Map config) {
         stages {
             stage('Checkout') {
                 steps {
-                    echo "${BRANCH}"
+                    echo "REPO_NAME: $REPO_NAME"
+                    echo "Branch: $BRANCH"
                     // credentialsId: 'git_mirror',
                     // url: 'ssh://git@xwtcvpgit:7999/dat/tdg-meterevent-api.git'
                     echo 'Git clone success'
@@ -54,5 +55,5 @@ def call(Map config) {
 }
 
 def build_and_deploy() {
-    echo 'SAM Build and deploy in dev successful'
+    echo 'Function build_and_deploy executing'
 }
