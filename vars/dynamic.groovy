@@ -2,12 +2,13 @@ def call(Map config) {
     pipeline {
         agent any
         environment {
-            REPO_NAME = "${config.REPO}"            
+            REPO_NAME = "${config.REPO}"       
+            BRANCH =   "${config.BRANCH}"       
         }
         stages {
             stage('Checkout') {
                 steps {
-                    git branch: config.BRANCH,
+                    git branch: '${BRANCH}',
                     // credentialsId: 'git_mirror',
                     // url: 'ssh://git@xwtcvpgit:7999/dat/tdg-meterevent-api.git'
                     echo 'Git clone success'
