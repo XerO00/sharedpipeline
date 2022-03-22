@@ -24,8 +24,7 @@ def call(Map config) {
                             echo 'SAM Build and deploy in sand started'
                             build_and_deploy()
                             echo 'SAM Build and deploy in sand successful'
-                            }
-                        }
+                        }                           
                         else if (config.ENVIRONMENT == 'dev') withCredentials([usernamePassword(credentialsId: 'aws-api-dev', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                             echo 'SAM Build and deploy in dev started'
                             build_and_deploy()
@@ -42,8 +41,8 @@ def call(Map config) {
                             echo 'SAM Build and deploy in prod successful'
                         }
                     }
+                }
             }
-            
             stage('notify') {
                 steps{
                     echo "https://hub.docker.com/r/$REPO_NAME"
