@@ -8,7 +8,7 @@ def call(Map config) {
         stages {
             stage('Checkout') {
                 steps {
-                    git branch: '${BRANCH}',
+                    echo "Branch ${BRANCH}",
                     // credentialsId: 'git_mirror',
                     // url: 'ssh://git@xwtcvpgit:7999/dat/tdg-meterevent-api.git'
                     echo 'Git clone success'
