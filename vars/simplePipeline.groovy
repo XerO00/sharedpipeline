@@ -8,7 +8,8 @@ def call() {
             stage('Verify') {                  
                 steps {
                     echo "Module: ${MODULE}"
-                    sh 'git version'
+		    echo "adding test line"	
+		    sh 'git version'
                 }
             }
         }
